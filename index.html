@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/1.2/skeleton.css" integrity="sha512-/Bkjd0EWKSNiQlanN59cE6iW26lkzxDDCEhygzJiw86pxY4qmdmerA9s0R0q2D+rIQLEF7YHrur3wFDxxkMANw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Number Guesser</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            background-color: gray;
+            height: 96vh;
+            margin: auto;
+            padding: 40px;
+            width: max-content;
+            box-shadow: 3px 3px 10px black;
+        }
+        .container:hover{
+            box-shadow: none;
+            transition: .5s ease-in-out;
+        }
+        .heading{
+            color: orange;
+            width: max-content;
+            padding-bottom: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-shadow: 5px 2px 5px black;
+        }
+        p{
+            padding-bottom: 20px;
+            color: white;
+        }
+        input{
+            padding: 10px;
+            margin: 2px;
+            border: none;
+            border-radius: 0px 10px;
+            border: 2px solid aquamarine;
+        }
+        input:focus{
+            outline: none;
+        }
+        #guess-btn{
+            background-color: aquamarine;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 3px 2px 5px black;
+        }
+        #guess-btn:hover{
+            background: rgb(106, 231, 189);
+            box-shadow: none;
+            transition: .5s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Number Guesser</h1>
+        <div id="game">
+            <p>Guess a number between 
+                <span class="min-num"></span> and 
+                <span class="max-num"></span>
+            </p>
+            <input type="number" id="guess-input" placeholder="Enter your guess...">
+            <input type="submit" value="Submit" id="guess-btn">
+            <p class="message"> </p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
