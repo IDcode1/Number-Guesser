@@ -9,20 +9,29 @@
 //Game value 
 let min = 1,
     max = 10,
-    winningNum = getRandomNum(min, max);
-    guessesLeft = 3;
+    winningNum = getRandomNum(min, max),
+    guessesLeft = 3,
+    score = localStorage.getItem('high-score') || 0;
 
+    clap = new Audio ('./Clap.mp3'),
+    clap.volume = 0.2;
+
+    
 // UI Element 
 const game = document.querySelector('#game'),
       minNum = document.querySelector('.min-num'),
       maxNum = document.querySelector('.max-num'),
       guessBtn = document.querySelector('#guess-btn'),
       guessInput = document.querySelector('#guess-input'),
-      message = document.querySelector('.message');
+      message = document.querySelector('.message'),
+      gameScore = document.querySelector('.count'),
+      reset = document.querySelector('#restart');
 
 // Assign UL min and max value 
 minNum.textContent = min;
 maxNum.textContent = max;
+gameScore.value = score;
+
 
 // play again event listerner 
 game.addEventListener('mousedown', (e) => {
@@ -33,16 +42,20 @@ game.addEventListener('mousedown', (e) => {
 
 // listen for guess 
 guessBtn.addEventListener('click', () => {
-    let guess = parseInt(guessInput.value);
+      let guess = parseInt(guessInput.value);
 
     //Validation
     if(isNaN (guess) || guess < min || guess > max){
         setMessage(`please enter a number between ${min} and ${max}`, 'red')
     }
-
+ 
     // check if won
     if(guess === winningNum){
         GameOver(true, `${winningNum} is correct, You WON!`);
+
+        gameScore.value = parseInt(score) + 5;
+        localStorage.setItem("high-score", gameScore.value)
+        clap.play();
 
     } else if (isNaN (guess) || guess < min || guess > max){
         guessesLeft = guessesLeft
@@ -70,7 +83,7 @@ guessBtn.addEventListener('click', () => {
         GameOver (false, `Game Over, You lost!. The correct number was ${winningNum}`);
      }
     }
-});
+})
 
 function GameOver (won, msg){
     let color;
@@ -88,6 +101,16 @@ function GameOver (won, msg){
     // play Again 
     guessBtn.value = 'Play Again'
     guessBtn.className = 'play-again' 
+}
+
+// Clear Score from LS 
+reset.addEventListener('click', clear);
+
+function clear (){
+    if(confirm('Are you sure')){
+        localStorage.setItem('high-score', 0);
+        window.location.reload();
+    }
 }
 
 // get Random number 

@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-            width: auto;
+            width: max-content;
             height: 90vh;
             margin: auto;
             padding: 40px;
@@ -44,6 +44,19 @@
             border: none;
             border-radius: 0px 10px;
             border: 2px solid aquamarine;
+            cursor: pointer;
+        }
+        .score{
+            width: max-content;
+            padding: 10px;
+            margin-bottom:30px;
+            border: none;
+            border-radius: 0px 10px;
+            border: 2px solid aquamarine;
+            color: orange;
+        }
+        .count{
+            width: 30%;
         }
         input:focus{
             outline: none;
@@ -69,8 +82,13 @@
                 <span class="min-num"></span> and 
                 <span class="max-num"></span>
             </p>
+            <p class="score">
+                <span>Score</span>
+                <input type="text" class="count" disabled>
+            </p>
             <input type="number" id="guess-input" placeholder="Enter your guess...">
             <input type="submit" value="Submit" id="guess-btn">
+            <input type="submit" value="RESTART" id="restart">
             <p class="message"> </p>
         </div>
     </div>
