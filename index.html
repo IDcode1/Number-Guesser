@@ -12,13 +12,10 @@
         }
         .container{
             background-color: gray;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            width: max-content;
+            width: 100%;
             height: 90vh;
             margin: auto;
-            padding: 40px;
+            padding: 30px;
             box-shadow: 3px 3px 10px black;
         }
         .container:hover{
@@ -30,9 +27,7 @@
             padding-bottom: 10px;
             font-family: Georgia, 'Times New Roman', Times, serif;
             text-shadow: 5px 2px 5px black;
-            text-align: center;
-            display: flex;
-            flex-wrap: wrap;
+            font-size: 20px;
         }
         p{
             padding-bottom: 20px;
@@ -86,7 +81,7 @@
                 <span>Score</span>
                 <input type="text" class="count" disabled>
             </p>
-            <input type="number" id="guess-input" placeholder="Enter your guess...">
+            <input type="number" id="guess-input" placeholder="Enter your guess..."> <br><br>
             <input type="submit" value="Submit" id="guess-btn">
             <input type="submit" value="RESTART" id="restart">
             <p class="message"> </p>
