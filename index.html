@@ -28,7 +28,7 @@
             font-family: Georgia, 'Times New Roman', Times, serif;
             text-shadow: 5px 2px 5px black;
             text-align: center;
-            font-size: 20px;
+            font-size: 30px;
         }
         p{
             padding-bottom: 20px;
@@ -52,18 +52,18 @@
             color: orange;
         }
         .count{
-            width: 30%;
+            width:20%;
         }
         input:focus{
             outline: none;
         }
-        #guess-btn{
+        #guess-btn, #restart{
             background-color: aquamarine;
             border: none;
             border-radius: 5px;
             box-shadow: 3px 2px 5px black;
         }
-        #guess-btn:hover{
+        #guess-btn:hover, #restart:hover{
             background: rgb(106, 231, 189);
             box-shadow: none;
             transition: .5s ease-in;
@@ -83,7 +83,7 @@
                 <input type="text" class="count" disabled>
             </p>
             <input type="number" id="guess-input" placeholder="Enter your guess..."> <br><br>
-            <input type="submit" value="Submit" id="guess-btn">
+            <input type="submit" value="SUBMIT" id="guess-btn">
             <input type="submit" value="RESTART" id="restart">
             <p class="message"> </p>
         </div>
